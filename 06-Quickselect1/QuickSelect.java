@@ -1,45 +1,47 @@
 import java.io.*;
 import java.util.*;
 
-//Still does not work
-
 public class QuickSelect{
     
     public int QuickSelect(int[] a, int k, int low, int high){
-	Random r = new Random();
-	int pivot = r.nextInt(high-low) + low;
-	int place = low;
-	int[] temp = new int[a.length];
-	int left = low;
-	int right = high;
 
 	if (low>=high)
 	    return low;
-        for(int i=low; i<high;i++){
-	    if (a[i]>=a[place]){
+
+	int[] temp = new int[a.length];
+
+	int left = low;
+	int right = high;
+	int pivot = (high+low)/2;
+
+        for(int i=low; i<=high;i++){
+	    if (a[i]>a[pivot]){
 		temp[right]=a[i];
 		right--;
 	    }
-	    else{
+	    else if (a[i]<a[pivot]){
 		temp[left]=a[i];
 		left++;
 	    }
+	    else{
+		temp[right]=a[i];
+	        right--;
+	    }
 	}
-	temp[right] = pivot;
-	
-	if (right==k)
-	    return right;
-	else if(right > k)
-	    return QuickSelect(temp, k, low, right-1);
+
+	if (left==k)
+	    return temp[left];
+	else if (left > k)
+	    return QuickSelect(temp, k, low, left);
 	else
-	    return QuickSelect(temp,k,right, high);
+	    return QuickSelect(temp, k, left+1, high);
     }
 
 
     public static void main (String[] args){
 	int[] list = {3,1,4,8,2,34,1,2,643,234,78};
 	QuickSelect qs = new QuickSelect();
-	System.out.println(qs.QuickSelect(list, 34, 0,10));
+	System.out.println(qs.QuickSelect(list, 7, 0,10));
 
     }
 }
