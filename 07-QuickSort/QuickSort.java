@@ -9,28 +9,36 @@ public class QuickSort{
 	    return L;
 
 	else{
-	    int pivot = L.length/2;
+	    Random r = new Random();
+	    int pivot = r.nextInt(L.length);
+
 	    ArrayList<Integer> low = new ArrayList<Integer>();
 	    ArrayList<Integer> up = new ArrayList<Integer>();
+	    ArrayList<Integer> plist = new ArrayList<Integer>();
 	    	    
 	    for(int i=0; i<L.length;i++){
 		if (L[i]<L[pivot])
 		    low.add(L[i]);
-		else if (L[i]>=L[pivot])
+		else if (L[i]>L[pivot])
 		    up.add(L[i]);
+		else
+		    plist.add(L[i]);
 	    }
 	
 
 	    Integer[] lower= low.toArray(new Integer[]{});
-	    Integer[] upper= up.toArray(new Integer[]{});;
+	    Integer[] upper= up.toArray(new Integer[]{});
+	    Integer[] pArr = plist.toArray(new Integer[]{});
 
-	    Integer[] bot = QuickSort(lower);//out of bounds here
-	    Integer[] top = QuickSort(upper);//out of bounds exception here
+	    lower = QuickSort(lower);
+	    upper = QuickSort(upper);
 
-	    for (int x=0;x<bot.length;x++)
-		L[x]=bot[x];
-	    for (int y=0;y<top.length;y++)
-		L[y+bot.length+1]=top[y];// and here
+	    for (int x=0;x<lower.length;x++)
+		L[x]=lower[x];
+	    for (int y=0;y<pArr.length;y++)
+		L[y+lower.length]=pArr[y];
+	    for (int z=0;z<upper.length;z++)
+		L[z+lower.length+pArr.length]=upper[z];
 	}
 	return L;
     }
