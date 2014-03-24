@@ -6,12 +6,21 @@ public class MyLinkedList {
 	head = new Node("");
     }
     
-    public void add(String d) {
+    /*public void add(String d) {
 	Node tmp = new Node(d);
 	tmp.setNext(head.getNext());
 	head.setNext(tmp);
+	}*/
+    
+    public void add(String d) { //Add to end
+	Node tmp = head;
+	Node n = new Node(d);
+	while (tmp.getNext() != null)
+	    tmp = tmp.getNext();
+	
+	tmp.setNext(n);
     }
-
+    
     public String toString() {
 	Node n = head;
 	String s= n.getData();
@@ -31,7 +40,7 @@ public class MyLinkedList {
 	}
 	temp.setNext(index.getNext());
 	index.setNext(temp);
-    }
+   }
 
     public String get(int i){
 	Node temp = head;
@@ -50,9 +59,11 @@ public class MyLinkedList {
 	    index = index.getNext();
 	    i--;
 	}
+
 	temp.setNext(index.getNext().getNext());
+	String ans = index.getNext().getData();
 	index.setNext(temp);
-	return index.getNext().getData();
+	return ans;
     }
 
     public String remove(int i){
