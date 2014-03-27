@@ -77,7 +77,7 @@ public class DoubleLL<E>{
 	String s = "[";
 	Node<E> tmp = current;
 	Node<E> stopCircle = tmp;
-	while (this.next() != stopCircle) {
+	while (tmp.getNext( != stopCircle) {
 	    this.forward();
 	    s +=  this.next().toString() + " ";
 	}
