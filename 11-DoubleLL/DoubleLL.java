@@ -1,3 +1,6 @@
+//Tianshi Wang and Omar Hegazy
+
+
 public class DoubleLL<E>{
     
     private class Node<E>{
