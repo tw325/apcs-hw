@@ -1,0 +1,9 @@
+FIFO
+
+q.enqueue(X) -- add x to end
+
+x = q.dequeue() -- remove/return from front
+
+q.isEmpty()
+
+q.front() -- returns but doesn't remove the front element

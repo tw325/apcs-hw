@@ -53,7 +53,7 @@ public class RPN{
 
     public static void main (String[] args){
 	RPN rpn = new RPN();
-	System.out.println(rpn.RPN("3 5 +"));
+	/*System.out.println(rpn.RPN("3 5 +"));
 	System.out.println(rpn.RPN("10 5 /"));
 	System.out.println(rpn.RPN("4 3 5 + /"));
 	System.out.println(rpn.RPN("23 6 -"));
@@ -61,6 +61,11 @@ public class RPN{
 	System.out.println(rpn.RPN("100 89 5 / *"));
 	System.out.println(rpn.RPN("1 1 + "));
 	System.out.println(rpn.RPN("6 9 8 10 231234 5 0 1 - * + / - *"));
+	*/
+	Scanner scan = new Scanner (System.in);
+	System.out.print("Enter: ");
+	String parameter = scan.nextLine();
+	System.out.println(rpn.RPN(parameter));
 
     }
 
