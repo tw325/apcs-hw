@@ -69,6 +69,15 @@ public class BST {
 	    }
 	}
     }
+
+    public void delete(Node n){
+	// get a pointer to the parent of the node we want to delete.
+	// 3 cases:
+	// a) node is a leaf - set parent's left/right to null
+	// b) node has one child - set parent's left/right to the node's non-null pointer
+	// cases a and b can be combined
+	// 
+    }
 	    
 	
     public static void main(String[] args){
