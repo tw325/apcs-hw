@@ -82,6 +82,8 @@ public class BST {
 	// - pretend you have a tree w/ the node to delete as the root 
 	// and delete the highest node in the left subtree (0/1 children) (recursive w/ fake root)
 	// - replace the node to delete with the copied value
+	// ROOT - treat as special case with if statement OR use a dummy node
+	// dummy's value should be less than any possible tree value
     }
 	    
 	
