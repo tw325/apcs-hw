@@ -73,10 +73,15 @@ public class BST {
     public void delete(Node n){
 	// get a pointer to the parent of the node we want to delete.
 	// 3 cases:
-	// a) node is a leaf - set parent's left/right to null
-	// b) node has one child - set parent's left/right to the node's non-null pointer
+	// 1) node is a leaf - set parent's left/right to null
+	// 2) node has one child - set parent's left/right to the node's non-null pointer
 	// cases a and b can be combined
-	// 
+	// 3) node has 2 children 
+	// - find the largest value on the left subtree (1 left, then as far right as possible)
+	// - make a copy of that value
+	// - pretend you have a tree w/ the node to delete as the root 
+	// and delete the highest node in the left subtree (0/1 children) (recursive w/ fake root)
+	// - replace the node to delete with the copied value
     }
 	    
 	
