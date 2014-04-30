@@ -150,29 +150,48 @@ public class BST {
 	    
 	}		
     }
-	    
-	        
+
+    //in order traversal: traverse(left) -> process node -> traverse(right) 
+    public void traverse(Node n){
+	if (n==null){
+	    return;
+	}
+	else{
+	    traverse (n.getLeft());
+	    System.out.println(n.getData());
+	    traverse (n.getRight());
+	}
+    }
+
+    //preorder traversal: process node -> traverse(left) -> traverse (right)
+    //postorder traversal: traverse(left) -> traverse(right) -> process node
 	
+
+	    	
     public static void main(String[] args){
 	BST tree = new BST();
 	Node test = new Node(72);
 	tree.insert(new Node(3));
 	tree.insert(new Node(45));
 	tree.insert(new Node(0));
-	System.out.println(tree.search(3).getLeft());
+	//System.out.println(tree.search(3).getLeft());
 	tree.insert(new Node(12));
 	tree.insert(new Node(206));
 	tree.insert(test);
 	tree.insert(new Node(54));
 	tree.insert(new Node(84));
 	tree.insert(new Node(76));	
-	System.out.println(tree.search2(test,84).getLeft());
+	//System.out.println(tree.search2(test,84).getLeft());
 	tree.insert(new Node(207));
-	System.out.println(tree.search(207).getLeft());
+	//System.out.println(tree.search(207).getLeft());
 	tree.insert(new Node(206));
-	System.out.println(tree.search(207).getRight());
-	System.out.println(tree.search(12));
-	System.out.println(tree.search(0).getRight());
+	//System.out.println(tree.search(207).getRight());
+	//System.out.println(tree.search(12));
+	//System.out.println(tree.search(0).getRight());
+	//tree.traverse(tree.search(3));
+	tree.delete(72);
+	tree.delete (84);
+	tree.traverse(tree.search (3));
 
     }
 
